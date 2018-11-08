@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/opa',{useNewUrlParser: true})
+options = {
+    useNewUrlParser: true,
+    user: 'mongoadmin',
+    pass: 'secret',
+    authSource: 'admin'
+}
+
+mongoose.connect('mongodb://localhost:27017/opa',options)
     .then(()=>{
         console.log('mongo iniciado');
     },
